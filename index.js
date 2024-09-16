@@ -23,7 +23,7 @@ app.post('/segment', upload.single('image'), (req, res)=>{
   if (!req.file) {
     return res.status(400).json({ error: 'No file uploaded'});
   }
-  const imagePath = path.resolve(req.file.path);
+  const imagePath = req.file.path;
 
   const pythonProcess = spawn('python', ['segment.py', imagePath]); 
 

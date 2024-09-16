@@ -67,10 +67,10 @@ for food_item, area in segmented_areas.items():
     gi = GI_values.get(food_item, 0)
     gl = (gi * carbs_g) / 100 if gi > 0 else 0
     
-    glycemic_load[food_item] = gl
+    glycemic_load[food_item] = round(gl, 2)
     
     
-total_gl = sum(glycemic_load.values())
+total_gl = round(sum(glycemic_load.values()), 2)
 
 output_results = {
   'food_items': [
