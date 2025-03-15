@@ -24,6 +24,7 @@ COPY package*.json ./
 RUN npm install
 
 # Copy the rest of the application
+COPY model1.pt ./
 COPY . .
 
 # Expose port
