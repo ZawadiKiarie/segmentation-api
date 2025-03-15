@@ -1,5 +1,5 @@
-FROM node:alpine
-RUN apk update && apk add --no-cache python3 py3-pip
+FROM node:18-slim
+RUN apt-get update && apt-get install -y python3 python3-pip
 WORKDIR /app
 COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
