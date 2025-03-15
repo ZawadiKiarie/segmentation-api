@@ -26,7 +26,7 @@ app.post("/segment", upload.single("image"), (req, res) => {
   console.log(req.file.path);
   const imagePath = req.file.path;
 
-  const pythonProcess = spawn("/usr/bin/python3.9", ["segment.py", imagePath]);
+  const pythonProcess = spawn("python", ["segment.py", imagePath]);
 
   let stdoutData = "";
   let stderrData = "";
