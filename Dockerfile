@@ -1,10 +1,11 @@
-FROM node:alpine
+FROM node:18
 
 # Install Python and pip
-RUN apk update && apk add --no-cache python3 py3-pip
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip python3-dev
 
 # Install required system dependencies for ultralytics
-RUN apk add --no-cache ffmpeg cmake build-base python3-dev
+RUN apt-get install -y ffmpeg libsm6 libxext6 cmake build-essential
 
 # Set working directory
 WORKDIR /app
