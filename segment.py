@@ -5,10 +5,6 @@ import warnings
 from ultralytics import YOLO
 import numpy as np
 import os
-import torch
-import ultralytics.nn.tasks
-
-torch.serialization.add_safe_globals([ultralytics.nn.tasks.SegmentationModel])
 
 GI_values = {
     'ugali': 67,    # Example GI for ugali
@@ -40,7 +36,7 @@ image_path = sys.argv[1]
 if not os.path.isfile(image_path):
     raise FileNotFoundError(f"File does not exist: {image_path}")
 
-model = YOLO('./model1.pt', torch_load_kwargs={'weights_only': False})
+model = YOLO('./model1.pt')
 
 results = model.predict(image_path, save=False, imgsz=320, conf=0.5, verbose=False)
 
